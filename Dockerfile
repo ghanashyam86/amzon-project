@@ -1,7 +1,7 @@
 FROM httpd:latest
 RUN echo "ServerName localhost" >> /usr/local/apache2/conf/httpd.conf
 #RUN service apache2 restart
-COPY mobile.html /usr/local/apache2/htdocs/
+COPY index.html /usr/local/apache2/htdocs/
 
 EXPOSE 80
 
