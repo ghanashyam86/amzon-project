@@ -1,0 +1,21 @@
+pipeline{
+  agent any
+
+   stages{
+     stage("checkout code"){
+        steps{
+                 sh "yum install git -y"
+                 sh "yum install docker -y && systemctl start docker && systemctl enable docker 
+                 sh "git clone git@github.com:ghanashyam86/amzon-project.git -b mobile"
+        }
+    }
+  
+    stage("build projet"){
+      steps{
+        dir('/mnt/project/amzon-project'){
+              sh 'mvn clean install'
+        }
+     }
+   }
+}
+} 
